@@ -4,6 +4,7 @@
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
         <button @click="resetName">Reset</button>
+        <button @click="resetFn()">Reset</button>
     </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
             type: String,
             required: false,
             default: 'example'
-        }
+        },
+        resetFn: Function
     },
     methods: {
         reverseName: function() {
