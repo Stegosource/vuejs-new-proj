@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
+        <button @click="resetName">Reset</button>
     </div>
 </template>
 
@@ -11,13 +12,17 @@ export default {
     props: {
         propName: {
             type: String,
-            required: true,
+            required: false,
             default: 'example'
         }
     },
     methods: {
         reverseName: function() {
             return this.propName.split("").reverse().join("");
+        },
+        resetName: function() {
+            this.propName = 'Austin';
+            this.$emit('nameWasReset', this.propName);
         }
     }
 }
