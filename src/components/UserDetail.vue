@@ -2,16 +2,16 @@
     <div class="component">
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
-        <p>User Name: {{ name }}</p>
+        <p>User Name: {{ reverseName() }}</p>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['name'],
-    data: function() {
-        return {
-
+    props: ['propName'],
+    methods: {
+        reverseName: function() {
+            return this.propName.split("").reverse().join("");
         }
     }
 }
