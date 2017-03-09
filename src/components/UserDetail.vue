@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
+        <p>User Age: {{ userAge }}</p>
         <button @click="resetName">Reset</button>
         <button @click="resetFn()">Reset</button>
     </div>
@@ -16,7 +17,8 @@ export default {
             required: false,
             default: 'example'
         },
-        resetFn: Function
+        resetFn: Function,
+        userAge: Number
     },
     methods: {
         reverseName: function() {
