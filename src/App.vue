@@ -33,7 +33,7 @@
         methods: {
             addQuote(quote) {
                 if ( this.quotes.length >= this.maxQuotes ) {
-                    return alert('Please delete some quotes first');
+                    return alert('Please delete some quotes first!');
                 }
                 this.quotes.push(quote);
             },
