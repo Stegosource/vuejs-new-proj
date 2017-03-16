@@ -14,6 +14,8 @@
 
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
+                <p>{{ reversedText }}</p>
+                <p>{{ countedText }}</p>
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
@@ -26,12 +28,21 @@
     export default {
         data() {
             return {
-                text: 'Example Text'
+                text: 'Example Text',
+                moreText: 'More example text'
             }
         },
         filters: {
             reverseText(value) {
-                return value.split('').reverse().join('')
+                return value.split('').reverse().join('');
+            }
+        },
+        computed: {
+            reversedText() {
+                return this.text.split('').reverse().join('');
+            },
+            countedText() {
+                return `${this.moreText} (${this.moreText.length})`;
             }
         }
     }
