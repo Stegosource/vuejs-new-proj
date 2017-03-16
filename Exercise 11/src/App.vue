@@ -15,17 +15,20 @@
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
                 <p>{{ reversedText }}</p>
-                <p>{{ countedText }}</p>
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
+                <p>{{ countedText }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import { countedText } from './mixins';
+
     export default {
+        mixins: [countedText],
         data() {
             return {
                 text: 'Example Text',
@@ -40,9 +43,6 @@
         computed: {
             reversedText() {
                 return this.text.split('').reverse().join('');
-            },
-            countedText() {
-                return `${this.moreText} (${this.moreText.length})`;
             }
         }
     }
