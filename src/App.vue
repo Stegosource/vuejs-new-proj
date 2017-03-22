@@ -50,6 +50,18 @@
                 <transition name="fade" mode="out-in">
                     <component :is="selectedComponent"></component>
                 </transition>
+                <hr>
+                <button class="btn btn-primary" @click="addItem">Add Item</button>
+                <ul class="list-group">
+                    <transition-group name="slide">
+                        <li class="list-group-item"
+                            v-for="(number, index) in numbers"
+                            @click="removeItem(index)"
+                            style="cursor: pointer;"
+                            :key="number"
+                            >{{ number }}</li>
+                    </transition-group>
+                </ul>
             </div>
         </div>
     </div>
@@ -66,7 +78,8 @@
                 alertAnimation: 'fade',
                 load: true,
                 elementWidth: 100,
-                selectedComponent: 'appSuccessAlert'
+                selectedComponent: 'appSuccessAlert',
+                numbers: [1, 2, 3, 4, 5]
             }
         },
         methods: {
@@ -115,6 +128,13 @@
             },
             leaveCancelled(el) {
                 console.log('leaveCancelled');
+            },
+            addItem() {
+                const pos = Math.floor(Math.random() * this.numbers.length);
+                this.numbers.splice(pos, 0, this.numbers.length + 1);
+            },
+            removeItem(index) {
+                this.numbers.splice(index, 1);
             }
         },
         components: {
@@ -153,6 +173,10 @@
         opacity: 0;
         transition: opacity 1s;
         animation: slide-out 1s ease-out forwards;
+        position: absolute;
+    }
+    .slide-move {
+        transition: transform 1s;
     }
     @keyframes slide-in {
         from {
