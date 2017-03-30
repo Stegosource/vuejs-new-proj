@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <appStock v-for="stock in stocks"></appStock>
+        <appStock v-for="stock in stocks" :stock="stock"></appStock>
     </div>
 </template>
 
