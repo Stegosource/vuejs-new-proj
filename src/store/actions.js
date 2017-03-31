@@ -7,12 +7,13 @@ export const loadData = ({commit}) => {
             if (data) {
                 const stocks = data.stocks;
                 const funds = data.funds;
-                const stockPorfolio = data.stockPorfolio;
+                const stockPortfolio = data.stockPortfolio;
 
                 const portfolio = {
-                    stockPorfolio,
+                    stockPortfolio,
                     funds
                 };
+                console.log(portfolio)
 
                 commit('SET_STOCKS', stocks);
                 commit('SET_PORTFOLIO', portfolio);

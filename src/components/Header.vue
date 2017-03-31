@@ -48,11 +48,12 @@
 			}
 		},
 		methods: {
-			...mapActions([
-				'randomizStocks'
-			]),
+			...mapActions({
+				randomizeStocks: 'randomizeStocks',
+				fetchData: 'loadData'
+			}),
 			endDay() {
-				this.randomizStocks();
+				this.randomizeStocks();
 			},
 			saveData() {
 				const data = {
@@ -61,6 +62,9 @@
 					stocks: this.$store.getters.stocks
 				}
 				this.$http.put('data.json', data);
+			},
+			loadData() {
+				this.fetchData();
 			}
 		}
 	}
