@@ -9,7 +9,14 @@ const mutations = {
         state.stocks = stocks;
     },
     'RND_STOCKS' (state) {
-
+        state.stocks.forEach(stock => {
+            stock.price = Math.round( stock.price * ( 1 + Math.random() - 0.5 ) );
+            // Generate a random number between 0.0 and 0.999.
+            // Add 1 to it so we are between 1 and 1.999
+            // Subtract .5 so we can be between .5 - 1.499 (either the stock went up or down)
+            // Multiply by the last stock price
+            // Round
+        });
     }
 };
 
